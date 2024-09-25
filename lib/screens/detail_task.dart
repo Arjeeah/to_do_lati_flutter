@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_lati/models/task_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailTask extends StatefulWidget {
   const DetailTask({super.key, required this.taskModel});
@@ -14,7 +15,7 @@ class _DetailTaskState extends State<DetailTask> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("task detail"),
+        title: Text(AppLocalizations.of(context)!.taskdetails),
         centerTitle: true,
         backgroundColor: Colors.blueGrey,
       ),
@@ -24,16 +25,16 @@ class _DetailTaskState extends State<DetailTask> {
           child: Column(
             children: [
               Text(
-                "tilte: ${widget.taskModel.title} ",
+                "${AppLocalizations.of(context)!.title}: ${widget.taskModel.title} ",
                 style:
                     const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               Icon(widget.taskModel.iscompleted
                   ? (Icons.check)
                   : Icons.cancel_presentation),
-              if (widget.taskModel.subtitle!=null)
+              if (widget.taskModel.subtitle != null)
                 Text(
-                  "subtitle: ${widget.taskModel.subtitle} ",
+                  "${AppLocalizations.of(context)!.subtitle}: ${widget.taskModel.subtitle} ",
                   style: const TextStyle(
                       fontSize: 30, fontWeight: FontWeight.bold),
                 )
